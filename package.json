@@ -1,0 +1,19 @@
+{
+  "name": "where-in-the-world-backend",
+  "version": "1.0.0",
+  "description": "- # What are the key strengths of each person on the team?\r     -Bishal:Backend(server), Auth0\r     -Dwight:Backed(server), time-management,\r     -Katrina:Backend(server), CSS\r     -Abdinasir:Backend(server), Mongo(stuff)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sawa-Sawa-CF/where-in-the-world-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sawa-Sawa-CF/where-in-the-world-backend/issues"
+  },
+  "homepage": "https://github.com/Sawa-Sawa-CF/where-in-the-world-backend#readme"
+}
