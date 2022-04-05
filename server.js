@@ -20,6 +20,7 @@ db.once('open', function () {
   console.log('Mongoose is connected');
 });
 
+
 const app = express();
 app.use(cors());
 app.use(express.json());
