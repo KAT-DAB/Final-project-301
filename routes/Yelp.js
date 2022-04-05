@@ -24,7 +24,7 @@ async function getRestaurants(request, response) {
     let myCity = request.query.location; 
     let myFood= request.query.term;
   
-    let url = `https://api.yelp.com/v3/businesses/search?term=${myFood}&location=${myCity}&apiKey=${process.env.apiKey}`;
+    let url = `https://api.yelp.com/v3/businesses/search?&limit=5&term=${myFood}&location=${myCity}&apiKey=${process.env.apiKey}`;
     console.log(url);  
     let foodData = await axios.get(url, {
       headers: {
@@ -32,21 +32,25 @@ async function getRestaurants(request, response) {
       }
     });
   // let stuff = new RestaurantData(foodData.data); 
-  console.log('first business name: ', foodData.data.businesses[0].name); 
-  // console.log(foodData.data.businesses, '.businesses'); WORKS
-  // console.log(foodData.data.businesses); 
-  response.send(foodData.data);
-  // response.send(stuff); 
+let stuffData = foodData.data.businesses.map(places => {
+  return new RestaurantData(places);
+  
+})
+console.log(stuffData);
+
+
+
+  response.send(stuffData);
 }
 
-// class RestaurantData {
-//   constructor (restaurants){ 
-//     this.businesses = restaurants.data.businesses[0].name;
-//     this.rating = restaurants.data.businesses[0].rating;
-//     this.address1 = restaurants.data.businesses[0].location.address1; 
-//     this.city = restaurants.data.businesses[0].location.city; 
-//   }
-// }
+class RestaurantData {
+  constructor (restaurants){ 
+    this.name = restaurants.name;
+    this.rating = restaurants.rating;
+    this.address1 = restaurants.location.address1;
+    this.city = restaurants.location.city;
+  }
+}
 
 
 module.exports = getRestaurants;
