@@ -92,6 +92,7 @@ class RestaurantData {
     this.image_url = restaurants.image_url;
     this.state = restaurants.location.state;
     this.zip_code = restaurants.location.zip_code;
+    this.notes = '';
   }
 }
 
