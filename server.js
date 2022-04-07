@@ -40,7 +40,7 @@ async function getRestaurants(request, response) {
   let myCity = request.query.location;
   let myFood = request.query.term;
 
-  let url = `https://api.yelp.com/v3/businesses/search?&limit=5&term=${myFood}&location=${myCity}&apiKey=${process.env.apiKey}`;
+  let url = `https://api.yelp.com/v3/businesses/search?&limit=15&term=${myFood}&location=${myCity}&apiKey=${process.env.apiKey}`;
   console.log(url);
   let foodData = await axios.get(url, {
     headers: {
