@@ -29,6 +29,7 @@ app.use(express.json());
 const PORT = process.env.PORT || 3002;
 
 app.get('/restaurants', getRestaurants);
+app.get('/savedRestaurants', getSavedRestaurants);
 app.post('/restaurants', postRestaurants);
 app.delete('/restaurants/:id', deleteRestaurants);
 app.put('/restaurants/:id', updateRestaurants);
@@ -75,6 +76,18 @@ async function deleteRestaurants(request, response){
     let id = request.params.id;
     let resUpdated = await postData.findByIdAndUpdate(id, request.body, { new: true, overwrite: true});
     response.send(resUpdated);
+  }
+
+  async function getSavedRestaurants(req, res, next) {
+    try {
+      
+      let queryObject = {};
+      
+      let results = await postData.find(queryObject);
+      res.status(200).send(results);
+    } catch(error) {
+      next(error)
+    }
   }
 
 
