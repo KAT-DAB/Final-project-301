@@ -10,8 +10,6 @@ const { Schema } = mongoose;
 
 const dataSchema = new Schema({
   name: {type: String, required: true},
-  // location:{type:String, required: true}
-
   rating: {type: String},
   address1: {type: String, required: true},
   city: {type: String, required: true},
